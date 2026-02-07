@@ -1060,10 +1060,12 @@ main {
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45), 0 0 28px rgba(255, 255, 255, 0.25);
 }
 
 .sound-prompt .btn:hover {
   background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6), 0 0 34px rgba(255, 255, 255, 0.35);
 }
 
 .sound-prompt.show {
