@@ -1,4 +1,4 @@
-﻿const targetDate = "2026-02-07T00:00:00+03:00";
+﻿const targetDate = "2026-02-09T00:00:00+03:00";
 const namePlaceholder = "[Name]";
 let hasUnlocked = false;
 let musicArmed = false;
