@@ -1056,6 +1056,16 @@ main {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.sound-prompt .btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sound-prompt .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .sound-prompt.show {
   opacity: 1;
   transform: translateY(0);
