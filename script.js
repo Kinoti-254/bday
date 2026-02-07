@@ -1,4 +1,4 @@
-﻿const targetDate = "2026-02-09T00:00:00+03:00";
+const targetDate = "2026-02-07T00:00:00+03:00";
 const namePlaceholder = "[Name]";
 let hasUnlocked = false;
 let musicArmed = false;
@@ -69,7 +69,7 @@ function updateCountdown() {
     hoursEl.textContent = "00";
     minutesEl.textContent = "00";
     secondsEl.textContent = "00";
-    countdownNote.textContent = "It is today! Finally 20 years old, Happy birthday my Love. I'm so proud of you, I Love you 🤗❤️. Thou little🥹, I hope you like it🤗. Enjoy :)";
+    countdownNote.textContent = "It is today! Finally 20 years old, Happy birthday my Love. I'm so proud of you, I Love you ????. Thou little??, I hope you like it??. Enjoy :)";
     if (countdownTease) {
       countdownTease.hidden = true;
     }
@@ -222,7 +222,7 @@ const lyricsByIndex = {
       "VERSE 1",
       "They say the holy waters watered down and this town's lost it faith",
       "Our colors will fade Eventually",
-      "So if our time is running out day after day we�ll make the mundane our masterpiece",
+      "So if our time is running out day after day we?ll make the mundane our masterpiece",
       "",
       "PRE",
       "Oh my my Oh my my",
@@ -231,7 +231,7 @@ const lyricsByIndex = {
       "CHORUS",
       "Taking me out of",
       "Of the ordinary I want you laying me down",
-      "Til we�re dead and buried",
+      "Til we?re dead and buried",
       "On the edge of your knife",
       "Staying drunk on your vine the",
       "Angels up in the clouds are jealous knowing we found something so out of the ordinary you got",
@@ -241,17 +241,17 @@ const lyricsByIndex = {
       "",
       "VERSE 2",
       "Hopeless hallelujah",
-      "Oh this side of heaven�s gates",
+      "Oh this side of heaven?s gates",
       "On my life",
       "How do ya Breathe and Take my breath away",
       "At your alter I will pray",
-      "You�re the sculptor I�m the clay",
+      "You?re the sculptor I?m the clay",
       "Oh my my",
       "",
       "CHORUS",
-      "You�re taking me out",
+      "You?re taking me out",
       "Of the ordinary I want you laying me down",
-      "Til we�re dead and buried",
+      "Til we?re dead and buried",
       "On the edge of your knife",
       "Staying drunk on your vine",
       "The Angels up in the clouds",
@@ -268,7 +268,7 @@ const lyricsByIndex = {
       "",
       "CHORUS",
       "Of the ordinary I want you laying me down",
-      "Til we�re dead and buried",
+      "Til we?re dead and buried",
       "On the edge of your knife",
       "Staying drunk on your vine",
       "The Angels up in the clouds",
@@ -284,17 +284,17 @@ const lyricsByIndex = {
       "Verse One",
       "I know sleep is friends with death",
       "But maybe I should get some rest",
-      "Cause I�ve been out here working all damn day",
+      "Cause I?ve been out here working all damn day",
       "",
       "Blueberries and butterflies",
       "The pretty things that greet my eyes",
-      "When you call and I say I�m on my way.",
+      "When you call and I say I?m on my way.",
       "",
       "Chorus:",
       "You and me belong together",
       "Like cold iced tea and warmer weather",
       "Where we lay out late underneath the pines",
-      "And we still have fun when the sun won�t shine",
+      "And we still have fun when the sun won?t shine",
       "You and me belong together",
       "All the time",
       "",
@@ -316,7 +316,7 @@ const lyricsByIndex = {
       "",
       "Bridge:",
       "This love is all we need",
-      "Oh we�ve got so much you and me",
+      "Oh we?ve got so much you and me",
       "",
       "Chorus:",
       "You and me belong together",
@@ -911,7 +911,7 @@ function renderBook() {
 
   if (bookProgress) {
     const displayRight = !isMobileBook && rightIndex < total ? rightIndex + 1 : leftIndex + 1;
-    bookProgress.textContent = `Page ${leftIndex + 1}${displayRight !== leftIndex + 1 ? `�${displayRight}` : ""} of ${total}`;
+    bookProgress.textContent = `Page ${leftIndex + 1}${displayRight !== leftIndex + 1 ? `?${displayRight}` : ""} of ${total}`;
   }
 
   if (bookPrev) {
