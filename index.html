@@ -1,0 +1,622 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday</title>
+    <meta name="description" content="A personal, interactive birthday experience." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">A little time capsule for my Special Human Being</p>
+        <h1 class="hero-title">
+          <span class="hero-kicker hero-kicker-pre" id="hero-kicker-pre">A surprise is on the way...</span>
+          <span class="hero-kicker hero-kicker-post" id="hero-kicker-post" hidden>Happy 20th Birthday,</span>
+          <span class="hero-name" id="name">My Love✨❤️</span>
+        </h1>
+        <p class="subhead">Every detail here is a love letter in motion.    </p>
+        <div class="hero-actions">
+          <button class="btn" id="play-toggle" aria-pressed="false">Play the song</button>
+          <button class="btn ghost" id="mute-toggle" aria-pressed="false">Mute</button>
+        </div>
+        <!-- <p class="hint">Tip: try the Konami code anywhere.</p> -->
+      </div>
+      <div class="hero-card">
+        <div class="hero-badge">Countdown to your special day Princess👑</div>
+        <div class="countdown" id="countdown">
+          <div class="time">
+            <span class="number" id="days">00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="time">
+            <span class="number" id="hours">00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="time">
+            <span class="number" id="minutes">00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="time">
+            <span class="number" id="seconds">00</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-note" id="countdown-note">Set the date in script.js for a live countdown.</p>
+        <p class="countdown-tease" id="countdown-tease" hidden>Get ready... something special is waiting.</p>
+      </div>
+    </header>
+
+    <section class="lock-panel" id="lock-panel" aria-live="polite">
+      <div class="lock-card">
+        <p class="eyebrow">Locked Until The Big Day</p>
+        <h2>Only the countdown is visible right now</h2>
+        <p class="subhead">Everything else unlocks automatically on the birthday.</p>
+      </div>
+      <div class="lock-tease" aria-hidden="true">
+        <div class="tease-card wide">
+          <div class="tease-line"></div>
+          <div class="tease-line short"></div>
+        </div>
+        <div class="tease-card">
+          <div class="tease-line"></div>
+          <div class="tease-line short"></div>
+        </div>
+        <div class="tease-card">
+          <div class="tease-line"></div>
+          <div class="tease-line short"></div>
+        </div>
+        <div class="tease-card wide">
+          <div class="tease-line"></div>
+          <div class="tease-line short"></div>
+        </div>
+      </div>
+    </section>
+
+    <main id="site-main">
+      <section class="panel" id="memories">
+        <div class="section-head">
+          <p class="eyebrow">Memories</p>
+          <h2>Moments I keep replaying</h2>
+          <p class="subhead">Each card is a snapshot. Swap in your real stories.</p>
+        </div>
+        <div class="memory-grid">
+          <article class="memory-card">
+            <div class="memory-tag">First adventure ✨</div>
+            <h3>That time we promised to be there for each other no matter what 🤝</h3>
+            <p>The city was asleep, my heart racing, and you were resting on my shoulder like that was exactly where you were meant to be. 🥹❤️</p>
+          </article>
+          <article class="memory-card">
+            <div class="memory-tag">When It Became Real ✨</div>
+            <h3>The First time I told you how I felt about you🥹 {"I Love You" ❤️}</h3>
+            <p>My heart was louder than my voice, but I meant every word. And when you said it back, the world felt steady.✨</p>
+          </article>
+          <article class="memory-card">
+            <div class="memory-tag">My Safe Place 🫶</div>
+            <h3>The Words That Lifted Me 💖✨</h3>
+            <p>When everything felt uncertain, you stayed steady. You didn�t try to fix me � you stood beside me until I found my footing again. Your belief in me quietly changed the way I see myself🥹❤️✨</p>
+
+          </article>
+          <article class="memory-card">
+            <div class="memory-tag">Always ♾️</div>
+            <h3>My Promise to You 🤞💖</h3>
+            <p>Whatever tomorrow looks like, I want it with you. No matter where life takes us � in the easy days and the hard ones � I will choose you. Not because I have to, but because I truly want to.💖✨</p>
+
+          </article>
+          <article class="memory-card hidden" id="hidden-memory">
+            <div class="memory-tag">Unlocked 🔓</div>
+            <h3>Only we know</h3>
+            <p>You double-clicked -> so I guess you really wanted to revisit that moment. 😉</p>
+
+          </article>
+        </div>
+        <div class="memory-map" id="memory-map-wrap">
+          <div class="map-header">
+            <p class="eyebrow">Memory Map</p>
+            <h3>Places that hold us</h3>
+            <p class="subhead">Tap a pin to reveal the story.</p>
+          </div>
+          <div class="map-card" id="memory-map" role="region" aria-label="Memory map">
+            <svg class="map-route" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M5 45 C 25 20, 45 55, 65 30 S 95 20, 98 8" />
+            </svg>
+            <button
+              class="map-pin active"
+              style="--x: 18%; --y: 65%;"
+              data-title="The First Hello"
+              data-note="In a sea of notifications, yours was the only one that truly mattered."
+
+              aria-label="The first hello"
+            ></button>
+            <button
+              class="map-pin"
+              style="--x: 40%; --y: 32%;"
+              data-title="Right on Time"
+              data-note="We crossed paths when we were almost done believing, tired of searching � and became each other�s reason to try again."
+
+              aria-label="The lost-and-found trip"
+            ></button>
+            <button
+              class="map-pin"
+              style="--x: 63%; --y: 52%;"
+              data-title="The Best Is Ahead"
+              data-note="Everything we�ve shared has made us stronger and more grateful � and I�m ready for every chapter ahead, because our future is ours to build together."
+
+              aria-label="Our favorite corner"
+            ></button>
+          </div>
+          <div class="map-caption" id="map-caption" aria-live="polite">
+            <span class="map-title">The first hello</span>
+            <p class="map-note">It started with a simple message � and somehow became the beginning of us...</p>
+          </div>
+        </div>
+        <p class="hint">Psst� double-click anywhere in this section. Something special is waiting. ✨</p>
+
+      </section>
+
+      <section class="panel message" id="message">
+        <div class="section-head">
+          <p class="eyebrow">Message</p>
+          <h2>Something I never want you to forget</h2>
+        </div>
+        <div class="letter" id="letter">
+          <p data-line>The world changed the day you were born — and so did mine the day I met you. ✨</p>
+          <p data-line>You are not ordinary, and loving you has never been accidental. 🤍</p>
+          <p data-line>I admire your mind, your heart, and the way you move through this world with quiet strength. 🌍</p>
+          <p data-line>You challenge me, steady me, and remind me who I want to become. 🔥</p>
+          <p data-line>With you, even the simplest days feel intentional — like they’re leading somewhere meaningful. 🌅</p>
+          <p data-line>I don’t just see who you are today, I see who you’re becoming — and I want to be there for all of it. 💫</p>
+          <p data-line>This year, I want more laughter, more growth, more risks taken side by side. 🥂</p>
+          <p data-line>I want late nights talking about dreams and early mornings building them. 🌙</p>
+          <p data-line>I want us choosing each other, again and again, without hesitation. ❤️</p>
+          <p data-line>Happy birthday, my love. 🎂</p>
+          <p data-line>I don’t just love you — I choose you. Every single time. 💍</p>
+
+
+        </div>
+        <div class="verdict">Deliberate, intentional, and emotionally authentic.</div>
+      </section>
+
+      <section class="panel lyrics" id="lyrics">
+        <div class="section-head">
+          <p class="eyebrow">Lyrics</p>
+          <h2>Our songs, line by line</h2>
+          <p class="subhead">Lyrics appear automatically when Song 3 starts.</p>
+        </div>
+        <div class="lyrics-card">
+          <div class="lyrics-header">
+            <span class="lyrics-label">Now playing</span>
+            <span class="lyrics-title" id="lyrics-title">Waiting for Song 2</span>
+          </div>
+          <div class="lyrics-lines" id="lyrics-lines" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="panel gallery" id="gallery">
+        <div class="section-head">
+          <p class="eyebrow">Memories</p>
+          <h2>Our gallery wall</h2>
+          <p class="subhead">Tap any photo to view it big.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="assets/image1.jpeg" alt="Memory 1" loading="lazy" />
+            <figcaption>Moja na mpoa nje ya Lib😌❤️. Ngl, We look amazing together🔥</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image2.jpeg" alt="Memory 2" loading="lazy" />
+            <figcaption>Dayumn girl. On this day you finished me😮‍💨. Umeiva mbaya😍🔥</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image3.jpeg" alt="Memory 3" loading="lazy" />
+            <figcaption>Pizza Date with my Fav human being🍕❤️. Ni Karembo😍</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image4.jpeg" alt="Memory 4" loading="lazy" />
+            <figcaption>Baby's smile melts me everytime🥹❤️. Keep on smiling girl😊</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image5.jpeg" alt="Memory 5" loading="lazy" />
+            <figcaption>Involve me😂. Unapiga aje picha pekee yako😅</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image6.jpeg" alt="Memory 6" loading="lazy" />
+            <figcaption>Aawww🥹. Love is in the air💞. Guess nani amepiga picha(Hint:"me😎")</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image7.jpeg" alt="Memory 7" loading="lazy" />
+            <figcaption>Her: Sun Kissed, Him: Sun burn😂. Si fair bythaway. Anyways I Love my Baby soo much❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image8.jpeg" alt="Memory 8" loading="lazy" />
+            <figcaption>Spending time her be the best🥰❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image9.jpeg" alt="Memory 9" loading="lazy" />
+            <figcaption>Eish, na si umeiva na spects😎.</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image10.jpeg" alt="Memory 10" loading="lazy" />
+            <figcaption>Always clingy when it comes to her🥹❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image11.jpeg" alt="Memory 11" loading="lazy" />
+            <figcaption>My photogenic Baby😍</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image12.jpeg" alt="Memory 12" loading="lazy" />
+            <figcaption>Hii siku ulikua umedress tu kill🔥. Alafu class ikabounce waah😂😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image13.jpeg" alt="Memory 13" loading="lazy" />
+            <figcaption>There is us again❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image14.jpeg" alt="Memory 14" loading="lazy" />
+            <figcaption>Travelling✈️. Safety first,not letting go of my Baby🥹❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image15.jpeg" alt="Memory 15" loading="lazy" />
+            <figcaption>1st Hackathon at JKUAT💻. not me asking,"wapi coffee zetu jameni?"☕😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image16.jpeg" alt="Memory 16" loading="lazy" />
+            <figcaption>Karura Innit🌿. Ubering from home to Karura Forest🚗</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image17.jpeg" alt="Memory 17" loading="lazy" />
+            <figcaption>Picnic Date🧺. After a long day of walking through the jungle🌳</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image18.jpeg" alt="Memory 18" loading="lazy" />
+            <figcaption>Say Cheese📸. Woi mimi sinanga styles za kupose 😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image19.jpeg" alt="Memory 19" loading="lazy" />
+            <figcaption>Boba tea date🧋. Hata sikushindwa kudunga cup😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image20.jpeg" alt="Memory 20" loading="lazy" />
+            <figcaption>matchy matchy🥰. Nani alikua....ama wacha tu🌚😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image21.jpeg" alt="Memory 21" loading="lazy" />
+            <figcaption>On this day, I was pretty sure she's the one for me🥹❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image22.jpeg" alt="Memory 22" loading="lazy" />
+            <figcaption>Na ni tu innocent aki😂</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image23.jpeg" alt="Memory 23" loading="lazy" />
+            <figcaption>Black and white be our favourite color🖤🤍</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image24.jpeg" alt="Memory 24" loading="lazy" />
+            <figcaption>Even through pixels and distance, my heart still loads you instantly✨❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image25.jpeg" alt="Memory 25" loading="lazy" />
+            <figcaption>Nails recap💅✨. Very lovely</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image26.jpeg" alt="Memory 26" loading="lazy" />
+            <figcaption>Photoshoot pale JKUAT📸</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image27.jpeg" alt="Memory 27" loading="lazy" />
+            <figcaption>What's wrong Love🥹? Umewaza sana Mpenzi❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image28.jpeg" alt="Memory 28" loading="lazy" />
+            <figcaption>#Kutoka kwa Big siz, Julie. {Rongai🦁😂}</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image29.jpeg" alt="Memory 29" loading="lazy" />
+            <figcaption>Baby's got cute deep dimples😍😍</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image30.jpeg" alt="Memory 30" loading="lazy" />
+            <figcaption>Huto tumacho tukiweza kuangalia unaeza faint. Cute pretty eyes with an innocent look✨💖</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image31.jpeg" alt="Memory 31" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image32.jpeg" alt="Memory 32" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image33.jpeg" alt="Memory 33" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image34.jpeg" alt="Memory 34" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image35.jpeg" alt="Memory 35" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image36.jpeg" alt="Memory 36" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image37.jpeg" alt="Memory 37" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image38.jpeg" alt="Memory 38" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image39.jpeg" alt="Memory 39" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image40.jpeg" alt="Memory 40" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image41.jpeg" alt="Memory 41" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image42.jpeg" alt="Memory 42" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image43.jpeg" alt="Memory 43" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image44.jpeg" alt="Memory 44" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image45.jpeg" alt="Memory 45" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image46.jpeg" alt="Memory 46" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image47.jpeg" alt="Memory 47" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image48.jpeg" alt="Memory 48" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image49.jpeg" alt="Memory 49" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image50.jpeg" alt="Memory 50" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image51.jpeg" alt="Memory 51" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image52.jpeg" alt="Memory 52" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image53.jpeg" alt="Memory 53" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image54.jpeg" alt="Memory 54" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image55.jpeg" alt="Memory 55" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image56.jpeg" alt="Memory 56" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image57.jpeg" alt="Memory 57" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image58.jpeg" alt="Memory 58" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image59.jpeg" alt="Memory 59" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image60.jpeg" alt="Memory 60" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image61.jpeg" alt="Memory 61" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image62.jpeg" alt="Memory 62" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image63.jpeg" alt="Memory 63" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image64.jpeg" alt="Memory 64" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image65.jpeg" alt="Memory 65" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image66.jpeg" alt="Memory 66" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image67.jpeg" alt="Memory 67" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image68.jpeg" alt="Memory 68" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image69.jpeg" alt="Memory 69" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image70.jpeg" alt="Memory 70" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image71.jpeg" alt="Memory 71" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image72.jpeg" alt="Memory 72" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image73.jpeg" alt="Memory 73" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image74.jpeg" alt="Memory 74" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image75.jpeg" alt="Memory 75" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image76.jpeg" alt="Memory 76" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image77.jpeg" alt="Memory 77" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image78.jpeg" alt="Memory 78" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image79.jpeg" alt="Memory 79" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image80.jpeg" alt="Memory 80" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image81.jpeg" alt="Memory 81" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image82.jpeg" alt="Memory 82" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image83.jpeg" alt="Memory 83" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image84.jpeg" alt="Memory 84" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image85.jpeg" alt="Memory 85" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image86.jpeg" alt="Memory 86" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image87.jpeg" alt="Memory 87" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image88.jpeg" alt="Memory 88" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image89.jpeg" alt="Memory 89" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image90.jpeg" alt="Memory 90" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image91.jpeg" alt="Memory 91" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image92.jpeg" alt="Memory 92" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image93.jpeg" alt="Memory 93" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image94.jpeg" alt="Memory 94" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image95.jpeg" alt="Memory 95" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image96.jpeg" alt="Memory 96" loading="lazy" />
+          </figure>
+        </div>
+        <div class="gallery-grid gallery-grid-two">
+          <figure class="gallery-item">
+            <img src="assets/image97.jpeg" alt="Memory 97" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image98.jpeg" alt="Memory 98" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image99.jpeg" alt="Memory 99" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/image100.jpeg" alt="Memory 100" loading="lazy" />
+          </figure>
+        </div>
+        <div class="memory-book" id="memory-book">
+          <div class="section-head">
+            <p class="eyebrow">Memory Book</p>
+            <h2>Flip through the rest</h2>
+            <p class="subhead">A cozy little book built from the remaining photos.</p>
+          </div>
+          <div class="heart-cover">
+            <div class="heart-collage" aria-hidden="true">
+              <img src="assets/image31.jpeg" alt="" loading="lazy" />
+              <img src="assets/image32.jpeg" alt="" loading="lazy" />
+              <img src="assets/image33.jpeg" alt="" loading="lazy" />
+              <img src="assets/image34.jpeg" alt="" loading="lazy" />
+              <img src="assets/image35.jpeg" alt="" loading="lazy" />
+              <img src="assets/image36.jpeg" alt="" loading="lazy" />
+              <img src="assets/image37.jpeg" alt="" loading="lazy" />
+              <img src="assets/image38.jpeg" alt="" loading="lazy" />
+              <img src="assets/image39.jpeg" alt="" loading="lazy" />
+              <img src="assets/image40.jpeg" alt="" loading="lazy" />
+              <img src="assets/image41.jpeg" alt="" loading="lazy" />
+              <img src="assets/image42.jpeg" alt="" loading="lazy" />
+              <img src="assets/image43.jpeg" alt="" loading="lazy" />
+              <img src="assets/image44.jpeg" alt="" loading="lazy" />
+              <img src="assets/image45.jpeg" alt="" loading="lazy" />
+              <img src="assets/image46.jpeg" alt="" loading="lazy" />
+            </div>
+            <p class="heart-caption">A heart full of us</p>
+          </div>
+          <div class="book-frame">
+            <button class="btn ghost book-nav" id="book-prev" aria-label="Previous spread">Prev</button>
+            <div class="book-pages" id="memory-book-pages">
+              <figure class="book-page left">
+                <img id="book-left-img" alt="Memory page" loading="lazy" />
+                <figcaption id="book-left-caption"></figcaption>
+              </figure>
+              <figure class="book-page right">
+                <img id="book-right-img" alt="Memory page" loading="lazy" />
+                <figcaption id="book-right-caption"></figcaption>
+              </figure>
+              <div class="page-turn" id="page-turn" aria-hidden="true">
+                <div class="page-turn-face front">
+                  <img id="turn-front-img" alt="" />
+                </div>
+                <div class="page-turn-face back">
+                  <img id="turn-back-img" alt="" />
+                </div>
+              </div>
+            </div>
+            <button class="btn ghost book-nav" id="book-next" aria-label="Next spread">Next</button>
+          </div>
+          <div class="book-progress" id="book-progress"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="secret" id="secret-note" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="secret-card">
+        <p class="eyebrow">Easter egg unlocked</p>
+        <h3>Secret note</h3>
+        <p>Replace this with your inside joke or a tiny love note.</p>
+        <button class="btn ghost" id="close-secret">Close</button>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="lightbox-content">
+        <img id="lightbox-image" alt="Memory photo" />
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <button class="btn ghost" id="lightbox-close">Close</button>
+      </div>
+    </div>
+
+    <audio id="bg-music" preload="auto" loop>
+      <source src="assets/song.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button class="hidden-star" id="hidden-star" aria-label="Hidden star"></button>
+    <div class="sound-prompt" id="sound-prompt" aria-live="polite">
+      <button class="btn ghost" id="sound-toggle">Tap for sound</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
